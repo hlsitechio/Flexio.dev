@@ -1,0 +1,52 @@
+{
+  "name": "flexio-dev",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "deploy": "npm run build && node scripts/github-push.js && netlify deploy --prod"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "^6.9.1",
+    "@codemirror/lang-html": "^6.4.6",
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/lang-markdown": "^6.3.0",
+    "@codemirror/language": "^6.9.1",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.21.3",
+    "@hello-pangea/dnd": "^16.3.0",
+    "@lezer/common": "^1.1.0",
+    "@lezer/markdown": "^1.1.0",
+    "@uiw/codemirror-theme-dracula": "^4.21.7",
+    "@uiw/codemirror-theme-github": "^4.21.7",
+    "@uiw/react-codemirror": "^4.21.7",
+    "@webcontainer/api": "^1.1.5",
+    "axios": "^1.4.0",
+    "git": "^0.1.5",
+    "lucide-react": "^0.258.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^4.0.10"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "netlify-cli": "^15.0.0",
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0"
+  }
+}
