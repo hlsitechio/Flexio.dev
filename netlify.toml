@@ -6,3 +6,11 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[build.environment]
+  NODE_VERSION = "14" # or whichever version you're using
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+  publish = "dist"
