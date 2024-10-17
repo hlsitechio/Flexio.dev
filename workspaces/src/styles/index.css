@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-light: #e0e5ec;
+  --color-bg-dark: #1a1f24;
+  --color-text-light: #333;
+  --color-text-dark: #e0e0e0;
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+}
+
+body {
+  @apply font-sans transition-colors duration-200;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+.dark {
+  --color-bg-light: #1a1f24;
+  --color-bg-dark: #0f1316;
+  --color-text-light: #e0e0e0;
+  --color-text-dark: #333;
+}
+
+.dark body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.neuro {
+  @apply bg-neuro-base dark:bg-neuro-base-dark shadow-neuro dark:shadow-neuro-dark rounded-xl;
+}
+
+.neuro-inset {
+  @apply bg-neuro-base dark:bg-neuro-base-dark shadow-neuro-inset dark:shadow-neuro-inset-dark rounded-xl;
+}
+
+.neuro-text {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.neuro-button {
+  @apply neuro px-3 py-2 text-gray-700 dark:text-gray-300 hover:shadow-neuro-inset dark:hover:shadow-neuro-inset-dark transition-shadow duration-200;
+}
+
+.neuro-input {
+  @apply neuro-inset bg-transparent px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400;
+}
+
+.sidebar-button {
+  @apply flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 w-full transition-colors duration-200;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neuro-base dark:bg-neuro-base-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neuro-shadow dark:bg-neuro-shadow-dark rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Neumorphic card */
+.neuro-card {
+  @apply neuro p-4 transition-all duration-300 hover:shadow-neuro-inset dark:hover:shadow-neuro-inset-dark;
+}
+
+/* Neumorphic toggle */
+.neuro-toggle {
+  @apply relative inline-block w-12 h-6 rounded-full neuro cursor-pointer transition-all duration-300;
+}
+
+.neuro-toggle::after {
+  content: '';
+  @apply absolute top-1 left-1 w-4 h-4 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300;
+}
+
+.neuro-toggle:checked::after {
+  @apply transform translate-x-6 bg-blue-500 dark:bg-blue-400;
+}
+
+/* Neumorphic select */
+.neuro-select {
+  @apply neuro-inset appearance-none px-4 py-2 pr-8 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+}
