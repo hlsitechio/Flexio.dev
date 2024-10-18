@@ -1,3 +1,3 @@
-[submodule "repository/Flexio.dev"]
-    path = repository/Flexio.dev
-    url = https://github.com/hlsitechio/Flexio.dev.git
+[submodule "workspaces/repository/Flexio.dev"]
+    path = workspaces/repository/Flexio.dev
+    url = https://github.com/yourusername/Flexio.dev.git
