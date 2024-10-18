@@ -1,0 +1,70 @@
+# General Build Settings
+[build]
+  publish = "dist"               # Directory where the build files are placed
+  command = "npm run build"       # Command to run the build process
+
+# Netlify Build Hook for Automated Deployments
+[build.environment]
+  NETLIFY_BUILD_HOOK = "https://api.netlify.com/build_hooks/671048561ae6052d2f6386d4"
+
+# Post Processing (Optimizations)
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true               # Enable pretty URLs
+
+[build.processing.css]
+  bundle = true                    # Bundle CSS
+  minify = true                    # Minify CSS for performance
+
+[build.processing.js]
+  bundle = true                    # Bundle JS files
+  minify = true                    # Minify JS to reduce size
+
+[build.processing.images]
+  compress = true                  # Optimize images for faster load times
+
+# Context-specific settings for deploy previews
+[context.deploy-preview]
+  command = "npm run build:preview"   # Different build command for preview deploys
+  publish = "dist-preview"
+
+# Headers (Security & Performance)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"                # Security: Prevent clickjacking
+    Content-Security-Policy = "default-src 'self'; img-src 'self' res.cloudinary.com;"  # Restrict resource loading sources
+    Strict-Transport-Security = "max-age=31536000;"  # Enforce HTTPS for a year
+    Referrer-Policy = "strict-origin-when-cross-origin"  # Set strict referrer policy
+
+# Redirects
+[[redirects]]
+  from = "/old-path"
+  to = "/new-path"
+  status = 301                             # Permanent redirect for SEO
+  force = true                             # Force the redirect even if the source exists
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.example.com/:splat"    # Proxy API requests
+  status = 200
+
+# Netlify Functions Configuration
+[functions]
+  directory = "netlify/functions"           # Directory where Netlify Functions are stored
+
+[functions."api_*"]
+  node_bundler = "esbuild"                  # Use esbuild for better function bundling performance
+  external_node_modules = ["express", "dotenv"]  # External modules used in your functions
+
+# Environment Variables for Production
+[context.production.environment]
+  NODE_ENV = "production"
+  API_URL = "https://api.flexio.dev"         # Production API URL
+
+# Environment Variables for Deploy Preview
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  API_URL = "https://api.staging.flexio.dev" # Staging API URL for preview

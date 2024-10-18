@@ -1,0 +1,15 @@
+{
+  "name": "My Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  }
+}

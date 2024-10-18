@@ -1,6 +1,11 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
+  "name": "My Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-python.python"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
   }
 }
-"ghcr.io/balazs23/devcontainers-features/nx:1": {}
